@@ -28,6 +28,9 @@ function generatePassword() {
   var numberStr = '1234567890'
   const numbers = numberStr.split('');
 
+  var specialStr = '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+  const special = specialStr.split('');
+
 
   while (isNaN(passLen) || passLen < 5 || passLen - Math.floor(passLen) !== 0) {
     passLen = prompt("Invalid input please enter a valid number")
@@ -60,6 +63,19 @@ function generatePassword() {
   if (includeNumbers === "y") {
     for (var i = 2; i < passLen; i += 3) {
       generatedPass[i] = numbers[Math.floor(Math.random() * numbers.length)];
+    }
+  }
+
+
+  var includeSpecial = prompt("Should the password include special characters? (y/n)")
+
+  while (includeSpecial !== "y" && includeSpecial !== "n" ) {
+    includeSpecial = prompt("Invalid input please enter either y or n");
+  }
+
+  if (includeSpecial === "y") {
+    for (var i = 3; i < passLen; i += 4) {
+      generatedPass[i] = special[Math.floor(Math.random() * special.length)];
     }
   }
 
