@@ -36,7 +36,12 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ## Acknowledgments
 
-marycpriyanka - provided the foundation for the project 
+marycpriyanka - provided the starter code for the project 
 
 ## Deployed Program
+
+![Base Password Generator Website](/assets/images/Password1.png)
+
+
+![Final Result Password Generator Website](/assets/images/Password2.png)
 
