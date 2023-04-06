@@ -27,12 +27,16 @@ function generatePassword() {
     passLen = prompt("Invalid input please enter a valid number")
   }
 
-  
   for(let i = 0; i < passLen; i++) {
-
     generatedPass[i] = lowerCase[Math.floor(Math.random() * lowerCase.length)];
+
   }
 
+  var includeUpper = prompt("Should the password include uppercase? (y/n)")
+
+  while (includeUpper !== "y" && includeUpper !== "n" ) {
+    includeUpper = prompt("Invalid input please enter either y or n");
+  }
 
   return generatedPass.join("");
 }
