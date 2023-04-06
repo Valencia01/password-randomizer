@@ -22,6 +22,9 @@ function generatePassword() {
   var lowerCaseStr = 'abcdefghijklmnopqrstuvwxyz';
   const lowerCase = lowerCaseStr.split('');
 
+  var upperCaseStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  const upperCase = upperCaseStr.split('');
+
 
   while (isNaN(passLen) || passLen < 5 || passLen - Math.floor(passLen) !== 0) {
     passLen = prompt("Invalid input please enter a valid number")
@@ -36,6 +39,12 @@ function generatePassword() {
 
   while (includeUpper !== "y" && includeUpper !== "n" ) {
     includeUpper = prompt("Invalid input please enter either y or n");
+  }
+
+  if (includeUpper === "y") {
+    for (var j = 0; j < passLen; j += 2) {
+      generatedPass[j] = upperCase[Math.floor(Math.random() * upperCase.length)];
+    }
   }
 
   return generatedPass.join("");
