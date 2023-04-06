@@ -25,6 +25,9 @@ function generatePassword() {
   var upperCaseStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   const upperCase = upperCaseStr.split('');
 
+  var numberStr = '1234567890'
+  const numbers = numberStr.split('');
+
 
   while (isNaN(passLen) || passLen < 5 || passLen - Math.floor(passLen) !== 0) {
     passLen = prompt("Invalid input please enter a valid number")
@@ -32,8 +35,8 @@ function generatePassword() {
 
   for(let i = 0; i < passLen; i++) {
     generatedPass[i] = lowerCase[Math.floor(Math.random() * lowerCase.length)];
-
   }
+
 
   var includeUpper = prompt("Should the password include uppercase? (y/n)")
 
@@ -42,8 +45,21 @@ function generatePassword() {
   }
 
   if (includeUpper === "y") {
-    for (var j = 0; j < passLen; j += 2) {
-      generatedPass[j] = upperCase[Math.floor(Math.random() * upperCase.length)];
+    for (var i = 0; i < passLen; i += 2) {
+      generatedPass[i] = upperCase[Math.floor(Math.random() * upperCase.length)];
+    }
+  }
+
+
+  var includeNumbers = prompt("Should the password include numbers? (y/n)")
+
+  while (includeNumbers !== "y" && includeNumbers !== "n" ) {
+    includeNumbers = prompt("Invalid input please enter either y or n");
+  }
+
+  if (includeNumbers === "y") {
+    for (var i = 2; i < passLen; i += 3) {
+      generatedPass[i] = numbers[Math.floor(Math.random() * numbers.length)];
     }
   }
 
